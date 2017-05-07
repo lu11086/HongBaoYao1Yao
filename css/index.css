@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/background.png);
+    background-size: 100%;
+}
+
+.mybackground,header{
+    width:100%;
+    position: relative;
+}
+
+.mybackground{
+    z-index: -5;
+}
+
+.myAbsolute{
+    display: none;
+    position: absolute;
+}
+
+.my88red1,.my66red1,.my88red2,.my10red1,.my66red2{
+    width:12%;
+}
+
+.my88red1{
+    transform: rotate(-10deg);
+}
+
+.myCircle1,.myCircle3{
+    width:7%;
+}
+
+.my66red1{
+    transform: rotate(-40deg);
+}
+
+.yuanbao1{
+    width:13%;
+}
+
+.myCircle2{
+    width:6%;
+    transform: rotate(-10deg);
+}
+
+.myCircle4{
+    width:8%;
+    transform: rotate(-20deg);
+}
+
+ul li{
+    list-style: none;
+}
+
+.yaoyiyao{
+    width:20%;
+}
+
+.qiangHongBao{
+    width:65%;
+}
+
+.headerInf{
+    width:60%;
+}
+
+.middleBg,.canyufangfa{
+    width:75%;
+    left:12.5%;
+}
+
+.erweimBg{
+    width:50%;
+    left:25%;
+}
+
+.fangfaLian{
+    width:55%;
+    left:22.5%;
+}
+
+.fangfa01,.fangfa02,.fangfa03{
+    width:18%;
+}
+
+.fangfa01text{
+    width:16%;
+}
+
+.fangfa02text{
+    width:12.5%;
+}
+
+.fangfa03text{
+    width:17.5%;
+}
+
+.middleTitle,.middleText{
+    width:65%;
+    left:17.5%;
+}
+
+.erweimTitle{
+    width:17.5%;
+    left:41.25%;
+}
+
+.erweimText{
+    width:32%;
+    left:34%;
+}
+
+@-webkit-keyframes pulsePlus {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.2, 1.2, 1.2);
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulsePlus {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.2, 1.2, 1.2);
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.pulsePlus {
+    -webkit-animation-name: pulsePlus;
+    animation-name: pulsePlus;
+}
