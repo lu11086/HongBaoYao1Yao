@@ -34,7 +34,6 @@ function deviceMotionHandler(eventData) {
         z = acceleration.z;
         var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
         if (speed > SHAKE_THRESHOLD) {
-
             document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
             StartMyPage();
         }
