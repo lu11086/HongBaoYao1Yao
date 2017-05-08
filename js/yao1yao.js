@@ -67,13 +67,15 @@ function StartMyPage() {
                         setTimeout(function () {
                             document.querySelector(".myCircle2").setAttribute('class', 'myAbsolute myCircle2 animated bounceIn');
                             document.querySelector(".my66red2").setAttribute('class', 'myBGImg3 my66red2 animated zoomInDown');
-                            document.querySelector(".myBGImg2").setAttribute('class', 'myBGImg myBGImg2 animated backgroundUp');
                             setTimeout(function () {
                                 document.querySelector(".myCircle4").setAttribute('class', 'myBGImg3 myCircle4 animated bounceInUp');
-                                document.querySelector(".myBGImg1").setAttribute('class', 'myBGImg myBGImg1 animated backgroundUp');
                                 setTimeout(function () {
-                                    document.querySelector(".jiangliBg").setAttribute('class', 'myAbsolute jiangliBg animated bounceInUp ');
-                                }, 100)
+                                    document.querySelector(".myBGImg2").setAttribute('class', 'myBGImg myBGImg2 animated backgroundUp');
+                                    setTimeout(function () {
+                                        document.querySelector(".myBGImg1").setAttribute('class', 'myBGImg myBGImg1 animated backgroundUp');
+                                        document.querySelector(".jiangliBg").setAttribute('class', 'myAbsolute jiangliBg animated bounceInUp ');
+                                    }, 200);
+                                }, 500);
                             }, 200);
                         }, 300);
                     }, 200);
