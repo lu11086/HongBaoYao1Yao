@@ -37,6 +37,7 @@ body {
 
 .myAbsolute{
     position: absolute;
+    display: none;
 }
 
 .my88red1,.my66red1,.my88red2,.my10red1,.my66red2{

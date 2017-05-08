@@ -1,0 +1,184 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/background.png);
+    background-size: 100%;
+    height: 220vw;
+    overflow: hidden;
+}
+
+body .myBGImg{
+    position: absolute;
+    width:100vw;
+}
+
+body .myBGImg1{
+    z-index: -10;
+}
+
+body .myBGImg2{
+    z-index: 10;
+}
+
+body .myBGImg3{
+    position: absolute;
+    z-index: 15;
+}
+
+.mybackground,header,.myCover{
+    width:100vw;
+    position: relative;
+}
+
+.mybackground{
+    z-index: -5;
+}
+
+.disNone{
+    visibility:hidden;
+}
+
+.myCover{
+    height:220vw;
+    z-index: 99;
+    background: rgba(0,0,0,0.7);
+}
+
+.myAbsolute{
+    position: absolute;
+}
+
+.my88red1,.my66red1,.my88red2,.my10red1,.my66red2{
+    width:12vw;
+}
+
+.my88red1{
+    top: 5vw;
+    left:27vw;
+    transform: rotate(-10deg);
+}
+
+.myCircle1,.myCircle3{
+    width:7vw;
+}
+
+.myCircle1{
+    width:7vw;
+    top:10vw;
+    left: 50vw;
+}
+
+.my66red1{
+    top:6vw;
+    left:73vw;
+    transform: rotate(-40deg);
+}
+
+.yuanbao1{
+    width:13vw;
+    top:15vw;
+    left:82vw;
+}
+
+.myCircle2{
+    width:6vw;
+    top:25vw;
+    left:26.5vw;
+    transform: rotate(-10deg);
+}
+
+.myCircle3{
+    top:55vw;
+    left:88vw;
+    transform: rotate(-10deg);
+}
+
+.my88red2{
+    top:90vw;
+    left:10vw;
+}
+
+.my10red1{
+    top:98vw;
+    left:83vw;
+}
+
+.my66red2{
+    top:135vw;
+    left:10vw;
+}
+
+.myCircle4{
+    width:8vw;
+    top:125vw;
+    left:83vw;
+    transform: rotate(-20deg);
+}
+
+ul{
+    margin: 0;
+}
+
+ul li{
+    list-style: none;
+}
+
+.yaoyiyao{
+    width:20vw;
+    top:18vw;
+    left:7.5vw;
+}
+
+.qiangHongBao{
+    width:65vw;
+    top:21vw;
+    left:26.5vw;
+}
+
+.headerInf{
+    width:60vw;
+    top:43.8vw;
+    left:33vw;
+}
+
+.jiangliBg{
+    width:50vw;
+    top:69vw;
+    left:27vw;
+    box-shadow: 0 0 10vw orange;
+}
+
+.mySpan{
+    font-size: 3vw;
+    bottom:5vw;
+    left:30vw;
+}
+
+@-webkit-keyframes backgroundUp {
+    from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    to {
+        -webkit-transform: translateY(-10vw);
+        transform: translateY(-10vw);
+    }
+}
+
+@keyframes backgroundUp {
+    from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    to {
+        -webkit-transform: translateY(-10vw);
+        transform: translateY(-10vw);
+    }
+}
+
+.backgroundUp {
+    -webkit-animation-name: backgroundUp;
+    animation-name: backgroundUp;
+}
