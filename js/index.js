@@ -82,6 +82,7 @@ window.onload = function () {
 
 function StartMyPage() {
     setTimeout(function () {
+        document.querySelector(".myCover").style.display = 'none';
         document.querySelector(".my88red1").style.display = 'block';
         document.querySelector(".my88red1").setAttribute('class', 'myAbsolute my88red1 animated slideInDown');
         setTimeout(function () {
