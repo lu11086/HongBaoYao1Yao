@@ -2,61 +2,85 @@
  * Created by Palov on 2017/5/4.
  */
 var animateStart = animateStop = fangfaStep1 = fangfaStep2 = fangfaStep3 = null;
-var myWidth = document.getElementsByTagName("body")[0].clientWidth;
-document.getElementsByTagName("body")[0].style.height = 2.2 * myWidth + 'px';
-/*背景设置*/
-document.querySelector(".my88red1").style.top = 0.05 * myWidth + 'px';
-document.querySelector(".my88red1").style.left = 0.27 * myWidth + 'px';
-document.querySelector(".myCircle1").style.top = 0.1 * myWidth + 'px';
-document.querySelector(".myCircle1").style.left = 0.5 * myWidth + 'px';
-document.querySelector(".my66red1").style.top = 0.06 * myWidth + 'px';
-document.querySelector(".my66red1").style.left = 0.73 * myWidth + 'px';
-document.querySelector(".yuanbao1").style.top = 0.15 * myWidth + 'px';
-document.querySelector(".yuanbao1").style.left = 0.82 * myWidth + 'px';
-document.querySelector(".myCircle2").style.top = 0.25 * myWidth + 'px';
-document.querySelector(".myCircle2").style.left = 0.265 * myWidth + 'px';
-document.querySelector(".myCircle3").style.top = 0.55 * myWidth + 'px';
-document.querySelector(".myCircle3").style.left = 0.88 * myWidth + 'px';
-document.querySelector(".my88red2").style.top = 0.9 * myWidth + 'px';
-document.querySelector(".my88red2").style.left = 0.1 * myWidth + 'px';
-document.querySelector(".my10red1").style.top = 0.98 * myWidth + 'px';
-document.querySelector(".my10red1").style.left = 0.83 * myWidth + 'px';
-document.querySelector(".my66red2").style.top = 1.35 * myWidth + 'px';
-document.querySelector(".my66red2").style.left = 0.1 * myWidth + 'px';
-document.querySelector(".myCircle4").style.top = 1.25 * myWidth + 'px';
-document.querySelector(".myCircle4").style.left = 0.83 * myWidth + 'px';
-/*header设置*/
-document.querySelector(".yaoyiyao").style.top = 0.18 * myWidth + 'px';
-document.querySelector(".yaoyiyao").style.left = 0.075 * myWidth + 'px';
-document.querySelector(".qiangHongBao").style.top = 0.21 * myWidth + 'px';
-document.querySelector(".qiangHongBao").style.left = 0.265 * myWidth + 'px';
-document.querySelector(".headerInf").style.top = 0.438 * myWidth + 'px';
-document.querySelector(".headerInf").style.left = 0.33 * myWidth + 'px';
-document.querySelector(".middleBg").style.top = 0.6 * myWidth + 'px';
-document.querySelector(".erweimBg").style.top = 0.9 * myWidth + 'px';
-document.querySelector(".erweimTitle").style.top = 0.98 * myWidth + 'px';
-document.querySelector(".canyufangfa").style.top = 1.5 * myWidth + 'px';
-document.querySelector(".fangfaLian").style.top = 1.65 * myWidth + 'px';
-document.querySelector(".fangfa01").style.top = document.querySelector(".fangfa02").style.top = document.querySelector(".fangfa03").style.top = 1.58 * myWidth + 'px';
-document.querySelector(".fangfa01text").style.top = document.querySelector(".fangfa02text").style.top = document.querySelector(".fangfa03text").style.top = 1.78 * myWidth + 'px';
-document.querySelector(".fangfa01").style.left = document.querySelector(".fangfa01text").style.left = 0.1 * myWidth + 'px';
-document.querySelector(".fangfa02").style.left = 0.41 * myWidth + 'px';
-document.querySelector(".fangfa02text").style.left = 0.43 * myWidth + 'px';
-document.querySelector(".fangfa03").style.left = document.querySelector(".fangfa03text").style.left = 0.72 * myWidth + 'px';
+/*var myWidth = document.getElementsByTagName("body")[0].clientWidth;
+ document.getElementsByTagName("body")[0].style.height = 2.2 * myWidth + 'px';*/
 /*可替换部分设置*/
-document.querySelector(".middleTitle").style.top = 0.64 * myWidth + 'px';
-document.querySelector(".middleText").style.top = 0.765 * myWidth + 'px';
-document.querySelector(".erweimText").style.top = 1.045 * myWidth + 'px';
-document.querySelector(".mySpan").style.top = 1.95 * myWidth + 'px';
-document.querySelector(".mySpan").style.left = 0.3 * myWidth + 'px';
-document.querySelector(".mySpan").style.fontSize = 0.03 * myWidth + 'px';
+/*document.querySelector(".mySpan").style.fontSize = 0.03 * myWidth + 'px';*/
+
+/*未加载完成时进行缓存*/
+setTimeout(function () {
+    document.querySelector(".my88red1").setAttribute('class', 'myAbsolute my88red1');
+    document.querySelector(".my66red1").setAttribute('class', 'myAbsolute my66red1');
+    document.querySelector(".myCircle1").setAttribute('class', 'myAbsolute myCircle1');
+    document.querySelector(".my88red2").setAttribute('class', 'myAbsolute my88red2');
+    document.querySelector(".yuanbao1").setAttribute('class', 'myAbsolute yuanbao1');
+    document.querySelector(".my10red1").setAttribute('class', 'myAbsolute my10red1');
+    document.querySelector(".myCircle3").setAttribute('class', 'myAbsolute myCircle3');
+    document.querySelector(".yaoyiyao").setAttribute('class', 'myAbsolute yaoyiyao');
+    document.querySelector(".qiangHongBao").setAttribute('class', 'myAbsolute qiangHongBao');
+    document.querySelector(".myCircle2").setAttribute('class', 'myAbsolute myCircle2');
+    document.querySelector(".headerInf").setAttribute('class', 'myAbsolute headerInf');
+    document.querySelector(".middleBg").setAttribute('class', 'myAbsolute middleBg');
+    document.querySelector(".my66red2").setAttribute('class', 'myAbsolute my66red2');
+    document.querySelector(".myCircle4").setAttribute('class', 'myAbsolute myCircle4');
+    document.querySelector(".erweimBg").setAttribute('class', 'myAbsolute erweimBg');
+    document.querySelector(".middleTitle").setAttribute('class', 'myAbsolute middleTitle');
+    document.querySelector(".middleText").setAttribute('class', 'myAbsolute middleText');
+    document.querySelector(".erweimTitle").setAttribute('class', 'myAbsolute erweimTitle');
+    document.querySelector(".erweimText").setAttribute('class', 'myAbsolute erweimText');
+    document.querySelector(".canyufangfa").setAttribute('class', 'myAbsolute canyufangfa');
+    document.querySelector(".fangfaLian").setAttribute('class', 'myAbsolute fangfaLian');
+    document.querySelector(".fangfa01").setAttribute('class', 'myAbsolute fangfa01');
+    document.querySelector(".fangfa02").setAttribute('class', 'myAbsolute fangfa02');
+    document.querySelector(".fangfa03").setAttribute('class', 'myAbsolute fangfa03');
+    document.querySelector(".fangfa01text").setAttribute('class', 'myAbsolute fangfa01text');
+    document.querySelector(".fangfa02text").setAttribute('class', 'myAbsolute fangfa02text');
+    document.querySelector(".fangfa03text").setAttribute('class', 'myAbsolute fangfa03text');
+    document.querySelector(".mySpan").setAttribute('class', 'myAbsolute mySpan');
+    setTimeout(function () {
+        document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
+        document.querySelector(".my88red1").style.display = 'none';
+        document.querySelector(".my66red1").style.display = 'none';
+        document.querySelector(".myCircle1").style.display = 'none';
+        document.querySelector(".my88red2").style.display = 'none';
+        document.querySelector(".yuanbao1").style.display = 'none';
+        document.querySelector(".my10red1").style.display = 'none';
+        document.querySelector(".myCircle3").style.display = 'none';
+        document.querySelector(".yaoyiyao").style.display = 'none';
+        document.querySelector(".qiangHongBao").style.display = 'none';
+        document.querySelector(".myCircle2").style.display = 'none';
+        document.querySelector(".headerInf").style.display = 'none';
+        document.querySelector(".middleBg").style.display = 'none';
+        document.querySelector(".my66red2").style.display = 'none';
+        document.querySelector(".myCircle4").style.display = 'none';
+        document.querySelector(".erweimBg").style.display = 'none';
+        document.querySelector(".middleTitle").style.display = 'none';
+        document.querySelector(".middleText").style.display = 'none';
+        document.querySelector(".erweimTitle").style.display = 'none';
+        document.querySelector(".erweimText").style.display = 'none';
+        document.querySelector(".canyufangfa").style.display = 'none';
+        document.querySelector(".fangfaLian").style.display = 'none';
+        document.querySelector(".fangfa01").style.display = 'none';
+        document.querySelector(".fangfa02").style.display = 'none';
+        document.querySelector(".fangfa03").style.display = 'none';
+        document.querySelector(".fangfa01text").style.display = 'none';
+        document.querySelector(".fangfa02text").style.display = 'none';
+        document.querySelector(".fangfa03text").style.display = 'none';
+        document.querySelector(".mySpan").style.display = 'none';
+        /*开场动画*/
+        setTimeout(StartMyPage,500);
+    },200)
+}, 1000);
+
 
 window.onload = function () {
     /*点击二维码进行跳转——跟扫一扫后一样的网址*/
     document.querySelector(".erweimText").onclick = function () {
         window.open("https://lu11086.github.io/HongBaoYao1Yao/yao1yao.html")
     };
-    /*开场动画*/
+};
+
+function StartMyPage() {
     setTimeout(function () {
         document.querySelector(".my88red1").style.display = 'block';
         document.querySelector(".my88red1").setAttribute('class', 'myAbsolute my88red1 animated slideInDown');
@@ -75,7 +99,7 @@ window.onload = function () {
                     document.querySelector(".my10red1").setAttribute('class', 'myAbsolute my10red1 animated rotateInUpRight');
                     setTimeout(function () {
                         document.querySelector(".myCircle3").style.display = 'block';
-                        document.querySelector(".myCircle3").setAttribute('class', 'myAbsolute myCircle1 animated flipInY');
+                        document.querySelector(".myCircle3").setAttribute('class', 'myAbsolute myCircle3 animated flipInY');
                         document.querySelector(".yaoyiyao").style.display = 'block';
                         document.querySelector(".yaoyiyao").setAttribute('class', 'myAbsolute yaoyiyao animated rotateIn');
                         document.querySelector(".qiangHongBao").style.display = 'block';
@@ -139,10 +163,13 @@ window.onload = function () {
             }, 300);
         }, 200);
     }, 200);
-};
+}
 
 function usualAnimate() {
-    if (animateStop) {clearTimeout(animateStop)};
+    if (animateStop) {
+        clearTimeout(animateStop)
+    }
+    ;
     animateStart = setTimeout(function () {
         document.querySelector(".yaoyiyao").setAttribute('class', 'myAbsolute yaoyiyao');
         document.querySelector(".headerInf").setAttribute('class', 'myAbsolute headerInf');
@@ -153,7 +180,10 @@ function usualAnimate() {
 }
 
 function stopUalAnimate() {
-    if (animateStart) {clearTimeout(animateStart)};
+    if (animateStart) {
+        clearTimeout(animateStart)
+    }
+    ;
     animateStop = setTimeout(function () {
         document.querySelector(".yaoyiyao").setAttribute('class', 'myAbsolute yaoyiyao animated tada');
         document.querySelector(".headerInf").setAttribute('class', 'myAbsolute headerInf animated pulse');
@@ -168,7 +198,7 @@ function FFStep01() {
     setTimeout(function () {
         document.querySelector(".fangfa01").setAttribute('class', 'myAbsolute fangfa01 animated pulsePlus');
         FFStep02();
-    },1000)
+    }, 1000)
 }
 
 function FFStep02() {
@@ -176,7 +206,7 @@ function FFStep02() {
     setTimeout(function () {
         document.querySelector(".fangfa02").setAttribute('class', 'myAbsolute fangfa02 animated pulsePlus');
         FFStep03();
-    },1000)
+    }, 1000)
 }
 
 function FFStep03() {
@@ -184,5 +214,5 @@ function FFStep03() {
     setTimeout(function () {
         document.querySelector(".fangfa03").setAttribute('class', 'myAbsolute fangfa03 animated pulsePlus');
         FFStep01();
-    },1000)
+    }, 1000)
 }
