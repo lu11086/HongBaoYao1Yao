@@ -18,7 +18,7 @@ body {
 .myCover{
     height:220vw;
     z-index: 99;
-    background: #fff;
+    background: orange;
 }
 
 .myCoverSpan{
@@ -28,6 +28,11 @@ body {
     width:100vw;
     line-height: 50vw;
     text-align: center;
+}
+
+.myCoverSpanLine{
+    height: 3vw;
+    background: orangered;
 }
 
 .myAbsolute{
