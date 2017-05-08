@@ -43,6 +43,11 @@ function deviceMotionHandler(eventData) {
     }
 }
 
+setTimeout(function () {
+    document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
+    StartMyPage();
+},5000);
+
 function StartMyPage() {
     setTimeout(function () {
         document.querySelector(".myCover").style.display = 'none';
@@ -62,11 +67,11 @@ function StartMyPage() {
                         setTimeout(function () {
                             document.querySelector(".myCircle2").setAttribute('class', 'myAbsolute myCircle2 animated bounceIn');
                             document.querySelector(".my66red2").setAttribute('class', 'myBGImg3 my66red2 animated zoomInDown');
+                            document.querySelector(".myBGImg2").setAttribute('class', 'myBGImg myBGImg2 animated backgroundUp');
                             setTimeout(function () {
                                 document.querySelector(".myCircle4").setAttribute('class', 'myBGImg3 myCircle4 animated bounceInUp');
-                                document.querySelector(".myBGImg2").setAttribute('class', 'myBGImg myBGImg2 animated backgroundUp');
+                                document.querySelector(".myBGImg1").setAttribute('class', 'myBGImg myBGImg1 animated backgroundUp');
                                 setTimeout(function () {
-                                    document.querySelector(".myBGImg1").setAttribute('class', 'myBGImg myBGImg1 animated backgroundUp');
                                     document.querySelector(".jiangliBg").setAttribute('class', 'myAbsolute jiangliBg animated bounceInUp ');
                                 }, 100)
                             }, 200);

@@ -156,25 +156,25 @@ ul li{
 
 @-webkit-keyframes backgroundUp {
     from {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
     }
 
     to {
-        -webkit-transform: translateY(-10vw);
-        transform: translateY(-10vw);
+        -webkit-transform: translate3d(0,-10vw,0);
+        transform: translate3d(0,-10vw,0);
     }
 }
 
 @keyframes backgroundUp {
     from {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
     }
 
     to {
-        -webkit-transform: translateY(-10vw);
-        transform: translateY(-10vw);
+        -webkit-transform: translate3d(0,-10vw,0);
+        transform: translate3d(0,-10vw,0);
     }
 }
 
