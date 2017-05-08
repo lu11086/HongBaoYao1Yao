@@ -8,39 +8,41 @@ var animateStart = animateStop = fangfaStep1 = fangfaStep2 = fangfaStep3 = null;
 /*document.querySelector(".mySpan").style.fontSize = 0.03 * myWidth + 'px';*/
 
 //运动事件监听
- if (window.DeviceMotionEvent) {
-         window.addEventListener('devicemotion',deviceMotionHandler,false);
-     }
+if (window.DeviceMotionEvent) {
+    window.addEventListener('devicemotion', deviceMotionHandler, false);
+}
+var vibrateSupport = "vibrate" in navigator;
+if (vibrateSupport) { //兼容不同的浏览器
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+}
 
- //获取加速度信息
- //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
- //而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
- var SHAKE_THRESHOLD = 4000;
- var last_update = 0;
- var x, y, z, last_x = 0, last_y = 0, last_z = 0;
- function deviceMotionHandler(eventData) {
-             var acceleration =eventData.accelerationIncludingGravity;
-             var curTime = new Date().getTime();
-             if ((curTime-last_update)> 10) {
-                     var diffTime = curTime -last_update;
-                     last_update = curTime;
-                     x = acceleration.x;
-                     y = acceleration.y;
-                     z = acceleration.z;
-                     var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
-                     if (speed > SHAKE_THRESHOLD) {
-                             alert("你中奖啦！");  // Do something
-                         }
-                     last_x = x;
-                     last_y = y;
-                     last_z = z;
-                }
-     }
+//获取加速度信息
+//通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
+//而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
+var SHAKE_THRESHOLD = 4000;
+var last_update = 0;
+var x, y, z, last_x = 0, last_y = 0, last_z = 0;
+function deviceMotionHandler(eventData) {
+    var acceleration = eventData.accelerationIncludingGravity;
+    var curTime = new Date().getTime();
+    if ((curTime - last_update) > 10) {
+        navigator.vibrate(500);
+        var diffTime = curTime - last_update;
+        last_update = curTime;
+        x = acceleration.x;
+        y = acceleration.y;
+        z = acceleration.z;
+        var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+        if (speed > SHAKE_THRESHOLD) {
 
-/*setTimeout(function () {
-    document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
-    StartMyPage();
-},5000);*/
+            document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
+            StartMyPage();
+        }
+        last_x = x;
+        last_y = y;
+        last_z = z;
+    }
+}
 
 function StartMyPage() {
     setTimeout(function () {
@@ -67,7 +69,7 @@ function StartMyPage() {
                                 setTimeout(function () {
                                     document.querySelector(".myBGImg1").setAttribute('class', 'myBGImg myBGImg1 animated backgroundUp');
                                     document.querySelector(".jiangliBg").setAttribute('class', 'myAbsolute jiangliBg animated bounceInUp ');
-                                },100)
+                                }, 100)
                             }, 200);
                         }, 300);
                     }, 200);
