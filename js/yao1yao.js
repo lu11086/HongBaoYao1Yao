@@ -60,10 +60,10 @@ function StartMyPage() {
                 document.querySelector(".myCircle1").setAttribute('class', 'myAbsolute myCircle1 animated bounceIn');
                 document.querySelector(".my88red2").setAttribute('class', 'myAbsolute my88red2 animated rollIn');
                 setTimeout(function () {
-                    document.querySelector(".yuanbao1").setAttribute('class', 'myAbsolute yuanbao1 animated flipInX');
-                    document.querySelector(".my10red1").setAttribute('class', 'myAbsolute my10red1 animated rotateInUpRight');
+                    document.querySelector(".yuanbao1").setAttribute('class', 'myAbsolute yuanbao1 animated bounceIn');
+                    document.querySelector(".my10red1").setAttribute('class', 'myAbsolute my10red1 animated slideInDown');
                     setTimeout(function () {
-                        document.querySelector(".myCircle3").setAttribute('class', 'myAbsolute myCircle3 animated flipInY');
+                        document.querySelector(".myCircle3").setAttribute('class', 'myAbsolute myCircle3 animated bounceIn');
                         setTimeout(function () {
                             document.querySelector(".myCircle2").setAttribute('class', 'myAbsolute myCircle2 animated bounceIn');
                             document.querySelector(".my66red2").setAttribute('class', 'myBGImg3 my66red2 animated zoomInDown');
