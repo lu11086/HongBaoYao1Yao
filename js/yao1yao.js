@@ -6,7 +6,7 @@ var animateStart = animateStop = fangfaStep1 = fangfaStep2 = fangfaStep3 = null;
  document.getElementsByTagName("body")[0].style.height = 2.2 * myWidth + 'px';*/
 /*可替换部分设置*/
 /*document.querySelector(".mySpan").style.fontSize = 0.03 * myWidth + 'px';*/
-imgLoader(['img/background.png',  'img/9.12-9.14日每天上午10点.png', 'img/10红包.png', 'img/66红包.png', 'img/88红包.png', 'img/红包.png', 'img/摇一摇.png', 'img/元宝.png', 'img/圆钱.png', 'img/摇一摇·手.png', 'img/new-bg.png', 'img/BG02.png'], function (percentage) {
+imgLoader(['img/background.jpg',  'img/9.12-9.14日每天上午10点.png', 'img/10红包.png', 'img/66红包.png', 'img/88红包.png', 'img/红包.png', 'img/摇一摇.png', 'img/元宝.png', 'img/圆钱.png', 'img/摇一摇·手.png', 'img/new-bg.jpg', 'img/BG02.png'], function (percentage) {
     var percentT = percentage * 100;
     document.querySelector(".myCoverSpan").innerText = 'Loading ' + (parseInt(percentT)) + '%';
     document.querySelector(".myCoverSpanLine").style.width = percentT + '%';
