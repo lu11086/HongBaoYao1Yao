@@ -20,18 +20,13 @@ body .myBGImg2{
     z-index: 10;
 }
 
-body .myBGImg3{
-    position: absolute;
-    z-index: 15;
-}
-
 .mybackground,header,.myCover{
     width:100vw;
     position: relative;
 }
 
 .mybackground{
-    z-index: -5;
+    z-index: 15;
 }
 
 .disNone{
@@ -145,13 +140,28 @@ ul li{
     width:50vw;
     top:69vw;
     left:27vw;
-    box-shadow: 0 0 10vw orange;
+    height: 74vw;
+    background: url("../img/new-bg.png") no-repeat;
+    /*box-shadow: 0 0 10vw orange;*/
+    text-align: center;
+}
+
+.jiangliBg span,.jiangliBg p{
+    color: #fff;
+    font-family: 微软雅黑, Arial, serif;
+    font-size: 5vw;
+}
+
+.jiangliBg span{
+    display: block;
+    margin-top: 21vw;
 }
 
 .mySpan{
     font-size: 3vw;
     bottom:5vw;
     left:30vw;
+    z-index: 20;
 }
 
 @-webkit-keyframes backgroundUp {
