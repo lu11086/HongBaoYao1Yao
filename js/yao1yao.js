@@ -7,6 +7,7 @@ imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/1
     document.querySelector(".myCoverSpan").innerText = 'Loading ' + (parseInt(percentT)) + '%';
     document.querySelector(".myCoverSpanLine").style.width = percentT + '%';
     if (percentage == 1) {
+        document.querySelector(".myCover").style.background = 'rgba(0,0,0,0.7)';
         document.querySelector(".myCoverSpan").innerText = '请摇动手机以抽奖';
         document.querySelector(".myCoverSpan").style.marginTop = '50vw';
         document.querySelector(".myCoverSpanLine").style.display = 'none';
@@ -24,10 +25,6 @@ imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/1
 
         if (window.DeviceMotionEvent) {
             window.addEventListener('devicemotion', deviceMotionHandler, false);
-        }
-        var vibrateSupport = "vibrate" in navigator;
-        if (vibrateSupport) { //兼容不同的浏览器
-            navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
         }
 
         //获取加速度信息
@@ -48,15 +45,12 @@ imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/1
                 z = acceleration.z;
                 var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
                 if (speed > SHAKE_THRESHOLD) {
-                    if(navigator.vibrate) {
-                        navigator.vibrate(500);
-                    } else if(navigator.webkitVibrate) {
-                        navigator.webkitVibrate(500);
-                    } else if(navigator.mozVibrate) {
-                        navigator.mozVibrate(500);
-                    } else if(navigator.msVibrate) {
-                        navigator.msVibrate(500);
+                    var vibrateSupport = "vibrate" in navigator;
+                    if (vibrateSupport) { //兼容不同的浏览器
+                        navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
                     }
+
+                    navigator.vibrate(500);
                     if (waitYao) {
                         clearInterval(waitYao);
                     }
