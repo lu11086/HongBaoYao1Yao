@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-image: url(https://github.com/lu11086/HongBaoYao1Yao/blob/gh-pages/img/background.jpg);
+    background-image: url(![image](https://github.com/lu11086/HongBaoYao1Yao/blob/gh-pages/img/background.jpg));
     background-size: 100%;
     height: 220vw;
     overflow: hidden;
@@ -28,7 +28,7 @@ body .myBGImg2{
 .myCover{
     height:220vw;
     z-index: 99;
-    background: orangered;
+    background: orange;
 }
 
 .myCoverSpan{
