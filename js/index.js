@@ -12,7 +12,8 @@ imgLoader(['img/background.jpg', 'img/erweimBg.png', 'img/1494168012.png', 'img/
     document.querySelector(".myCoverSpan").innerText = 'Loading ' + (parseInt(percentT)) + '%';
     document.querySelector(".myCoverSpanLine").style.width = percentT + '%';
     if (percentage == 1) {
-        document.getElementById("preloader5").style.display = 'none';
+        document.getElementById("preloader5").style.visibility = 'hidden';
+        document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
         /*开场动画*/
         setTimeout(StartMyPage, 500);
     }
@@ -108,7 +109,7 @@ function StartMyPage() {
                 }, 400);
             }, 300);
         }, 200);
-    }, 200);
+    }, 1000);
 }
 
 function usualAnimate() {

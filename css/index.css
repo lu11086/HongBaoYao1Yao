@@ -23,6 +23,7 @@ body {
 
 .myCoverSpan{
     display: block;
+    color: #fff;
     font-size: 5vw;
     height:50vw;
     width:100vw;
