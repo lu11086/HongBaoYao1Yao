@@ -6,40 +6,56 @@ var animateStart = animateStop = fangfaStep1 = fangfaStep2 = fangfaStep3 = null;
  document.getElementsByTagName("body")[0].style.height = 2.2 * myWidth + 'px';*/
 /*可替换部分设置*/
 /*document.querySelector(".mySpan").style.fontSize = 0.03 * myWidth + 'px';*/
+imgLoader(['img/background.png',  'img/9.12-9.14日每天上午10点.png', 'img/10红包.png', 'img/66红包.png', 'img/88红包.png', 'img/红包.png', 'img/摇一摇.png', 'img/元宝.png', 'img/圆钱.png', 'img/摇一摇·手.png', 'img/new-bg.png', 'img/BG02.png'], function (percentage) {
+    var percentT = percentage * 100;
+    document.querySelector(".myCoverSpan").innerText = 'Loading ' + (parseInt(percentT)) + '%';
+    document.querySelector(".myCoverSpanLine").style.width = percentT + '%';
+    if (percentage == 1) {
+        document.querySelector(".myCoverSpan").innerText = '请摇动手机以抽奖';
+        document.querySelector(".myCoverSpan").style.marginTop = '50vw';
+        document.querySelector(".myCoverSpanLine").style.display = 'none';
+        document.getElementById("preloader5").style.display = 'none';
+        document.getElementById("yaoyiyaoHand").style.display = 'block';
+        var myHand = document.getElementById("yaoyiyaoHand");
+        var waitYao = setInterval(function () {
+            if(myHand.className) {
+                document.getElementById("yaoyiyaoHand").setAttribute('class', '');
+            }else{
+                document.getElementById("yaoyiyaoHand").setAttribute('class', 'animated tada');
+            }
+        },1000);
+        //获取加速度信息
+        //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
+        //而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
+        var SHAKE_THRESHOLD = 4000;
+        var last_update = 0;
+        var x, y, z, last_x = 0, last_y = 0, last_z = 0;
 
-//获取加速度信息
-//通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
-//而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
-var SHAKE_THRESHOLD = 4000;
-var last_update = 0;
-var x, y, z, last_x = 0, last_y = 0, last_z = 0;
-function deviceMotionHandler(eventData) {
-    var acceleration = eventData.accelerationIncludingGravity;
-    var curTime = new Date().getTime();
-    if ((curTime - last_update) > 10) {
-        var diffTime = curTime - last_update;
-        last_update = curTime;
-        x = acceleration.x;
-        y = acceleration.y;
-        z = acceleration.z;
-        var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-        if (speed > SHAKE_THRESHOLD) {
-            navigator.vibrate(1000);
-            document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
-            getTheAward();
-            StartMyPage();
+        function deviceMotionHandler(eventData) {
+            var acceleration = eventData.accelerationIncludingGravity;
+            var curTime = new Date().getTime();
+            if ((curTime - last_update) > 10) {
+                var diffTime = curTime - last_update;
+                last_update = curTime;
+                x = acceleration.x;
+                y = acceleration.y;
+                z = acceleration.z;
+                var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+                if (speed > SHAKE_THRESHOLD) {
+                    clearInterval(waitYao);
+                    navigator.vibrate(1000);
+                    document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
+                    getTheAward();
+                    StartMyPage();
+                }
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
         }
-        last_x = x;
-        last_y = y;
-        last_z = z;
-    }
-}
 
-setTimeout(function () {
-    document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
-    getTheAward();
-    StartMyPage();
-}, 5000);
+    }
+});
 
 function StartMyPage() {
     setTimeout(function () {
@@ -58,9 +74,9 @@ function StartMyPage() {
                         document.querySelector(".myCircle2").setAttribute('class', 'myAbsolute myCircle2 animated bounceIn');
                         document.querySelector(".my66red2").setAttribute('class', 'myAbsolute my66red2 animated zoomInDown');
                         document.querySelector(".myCircle4").setAttribute('class', 'myAbsolute myCircle4 animated bounceInUp');
-                            setTimeout(function () {
-                                document.querySelector(".jiangliBg").setAttribute('class', 'myAbsolute jiangliBg animated bounceInUp');
-                            }, 150);
+                        setTimeout(function () {
+                            document.querySelector(".jiangliBg").setAttribute('class', 'myAbsolute jiangliBg animated bounceInUp');
+                        }, 150);
                     }, 300);
                 }, 400);
             }, 300);

@@ -6,20 +6,21 @@
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>摇一摇页</title>
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/preload.css">
     <link rel="stylesheet" href="css/yao1yao.css">
 </head>
 <body>
 <div class="mybackground">
-    <img src="img/88红包.png" class="myAbsolute my88red1 ">
-    <img src="img/圆钱.png" class="myAbsolute myCircle1 ">
-    <img src="img/66红包.png" class="myAbsolute my66red1 ">
-    <img src="img/元宝.png" class="myAbsolute yuanbao1 ">
-    <img src="img/圆钱.png" class="myAbsolute myCircle2 ">
-    <img src="img/圆钱.png" class="myAbsolute myCircle3 ">
-    <img src="img/88红包.png" class="myAbsolute my88red2 ">
-    <img src="img/10红包.png" class="myAbsolute my10red1 ">
-    <img src="img/66红包.png" class="myAbsolute my66red2 ">
-    <img src="img/圆钱.png" class="myAbsolute myCircle4 ">
+    <img src="img/88红包.png" class="myAbsolute my88red1 disNone">
+    <img src="img/圆钱.png" class="myAbsolute myCircle1 disNone">
+    <img src="img/66红包.png" class="myAbsolute my66red1 disNone">
+    <img src="img/元宝.png" class="myAbsolute yuanbao1 disNone">
+    <img src="img/圆钱.png" class="myAbsolute myCircle2 disNone">
+    <img src="img/圆钱.png" class="myAbsolute myCircle3 disNone">
+    <img src="img/88红包.png" class="myAbsolute my88red2 disNone">
+    <img src="img/10红包.png" class="myAbsolute my10red1 disNone">
+    <img src="img/66红包.png" class="myAbsolute my66red2 disNone">
+    <img src="img/圆钱.png" class="myAbsolute myCircle4 disNone">
 </div>
 <div class="myContent">
     <ul>
@@ -42,8 +43,13 @@
 </div>
 <span class="myAbsolute mySpan">最终说明权归：<b>卢景祎™</b> 所有</span>
 <div class="myCover">
+    <div id="preloader5"></div>
+    <img id="yaoyiyaoHand" alt="摇一摇图标" src="img/摇一摇·手.png">
+    <span class="myCoverSpan">正在加载请稍后...</span>
+    <p class="myCoverSpanLine"> </p>
 </div>
 <img src="img/BG02.png" alt="背景图2" class="myBGImg myBGImg2">
 </body>
+<script src="js/imgLoaded.js"></script>
 <script src="js/yao1yao.js"></script>
 </html>

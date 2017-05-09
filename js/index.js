@@ -7,11 +7,12 @@ var animateStart = animateStop = fangfaStep1 = fangfaStep2 = fangfaStep3 = null;
 /*可替换部分设置*/
 /*document.querySelector(".mySpan").style.fontSize = 0.03 * myWidth + 'px';*/
 
-imgLoader(['img/background.png', 'img/erweimBg.png', 'img/1494168012.png', 'img/1.扫码关注e享家 微信公众号.png', 'img/2.主界面点击   红包菜单.png', 'img/3.进入界面后摇一摇   手机抢现金红包.png', 'img/9.12-9.14日每天上午10点.png', 'img/10红包.png', 'img/66红包.png', 'img/88红包.png', 'img/100,000元.png', 'img/middleBg.png', 'img/参与方法.png', 'img/方法·链接.png', 'img/方法01.png', 'img/方法02.png', 'img/方法03.png', 'img/红包.png', 'img/扫码开抢.png', 'img/现金红包 限量不限额.png', 'img/摇一摇.png', 'img/元宝.png', 'img/圆钱.png', 'img/摇一摇·手.png', 'img/new-bg.png', 'img/BG01.png', 'img/BG02.png'], function (percentage) {
+imgLoader(['img/background.png', 'img/erweimBg.png', 'img/1494168012.png', 'img/1.扫码关注e享家 微信公众号.png', 'img/2.主界面点击   红包菜单.png', 'img/3.进入界面后摇一摇   手机抢现金红包.png', 'img/9.12-9.14日每天上午10点.png', 'img/10红包.png', 'img/66红包.png', 'img/88红包.png', 'img/100,000元.png', 'img/middleBg.png', 'img/参与方法.png', 'img/方法·链接.png', 'img/方法01.png', 'img/方法02.png', 'img/方法03.png', 'img/红包.png', 'img/扫码开抢.png', 'img/现金红包 限量不限额.png', 'img/摇一摇.png', 'img/元宝.png', 'img/圆钱.png'], function (percentage) {
     var percentT = percentage * 100;
     document.querySelector(".myCoverSpan").innerText = 'Loading ' + (parseInt(percentT)) + '%';
     document.querySelector(".myCoverSpanLine").style.width = percentT + '%';
     if (percentage == 1) {
+        document.getElementById("preloader5").style.display = 'none';
         /*开场动画*/
         setTimeout(StartMyPage, 500);
     }
@@ -46,7 +47,7 @@ function StartMyPage() {
                         document.querySelector(".myCircle3").style.display = 'block';
                         document.querySelector(".myCircle3").setAttribute('class', 'myAbsolute myCircle3 animated flipInY');
                         document.querySelector(".yaoyiyao").style.display = 'block';
-                        document.querySelector(".yaoyiyao").setAttribute('class', 'myAbsolute yaoyiyao animated rotateIn');
+                        document.querySelector(".yaoyiyao").setAttribute('class', 'myAbsolute yaoyiyao animated bounceIn');
                         document.querySelector(".qiangHongBao").style.display = 'block';
                         document.querySelector(".qiangHongBao").setAttribute('class', 'myAbsolute qiangHongBao animated zoomIn');
                         setTimeout(function () {

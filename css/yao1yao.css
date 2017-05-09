@@ -25,6 +25,29 @@ body .myBGImg2{
     position: absolute;
 }
 
+.myCoverSpan{
+    display: block;
+    color: #fff;
+    font-size: 5vw;
+    height:50vw;
+    width:100vw;
+    line-height: 50vw;
+    text-align: center;
+    margin-top:40vw;
+}
+
+.myCoverSpanLine{
+    height: 3vw;
+    background: white;
+}
+
+#yaoyiyaoHand{
+    position: absolute;
+    width:20vw;
+    left:40vw;
+    top:40vw;
+}
+
 .mybackground{
     z-index: 15;
 }
@@ -162,33 +185,4 @@ ul li{
     bottom:5vw;
     left:30vw;
     z-index: 20;
-}
-
-@-webkit-keyframes backgroundUp {
-    from {
-        -webkit-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-    }
-
-    to {
-        -webkit-transform: translate3d(0,-10vw,0);
-        transform: translate3d(0,-10vw,0);
-    }
-}
-
-@keyframes backgroundUp {
-    from {
-        -webkit-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-    }
-
-    to {
-        -webkit-transform: translate3d(0,-10vw,0);
-        transform: translate3d(0,-10vw,0);
-    }
-}
-
-.backgroundUp {
-    -webkit-animation-name: backgroundUp;
-    animation-name: backgroundUp;
 }
