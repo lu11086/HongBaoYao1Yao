@@ -22,7 +22,7 @@ imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/1
             }
         }, 1000);
 
-        if (!myAward) {
+
             if (window.DeviceMotionEvent) {
                 window.addEventListener('devicemotion', deviceMotionHandler, false);
             }
@@ -31,9 +31,9 @@ imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/1
                 navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
             }
 
-//获取加速度信息
-//通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
-//而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
+    //获取加速度信息
+    //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
+    //而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
             var SHAKE_THRESHOLD = 4000;
             var last_update = 0;
             var x, y, z, last_x = 0, last_y = 0, last_z = 0;
@@ -53,7 +53,6 @@ imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/1
                         if (waitYao) {
                             clearInterval(waitYao);
                         }
-                        myAward = true;
                         document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
                         getTheAward();
                         StartMyPage();
@@ -63,7 +62,7 @@ imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/1
                     last_z = z;
                 }
             }
-        }
+
     }
 });
 
@@ -96,25 +95,28 @@ function StartMyPage() {
 }
 
 function getTheAward() {
-    var myAwardID = Math.round(Math.random() * 100);
-    var chars = ['0', '100', '2', '98', '5', '95', '10', '90'];
-    /*中奖几率分别为：特等奖：1/99；一等奖：4/99；二等奖:6/99；三等奖：10/99*/
-    var strTitle, strText;
-    if (myAwardID < chars[7] && myAwardID > chars[6]) {
-        strTitle = '很遗憾';
-        strText = '您没有获得奖项';
-    } else {
-        strTitle = '恭喜您获得了:';
-        if (myAwardID <= chars[0] || myAwardID >= chars[1]) {
-            strText = '特等奖';
-        } else if (myAwardID <= chars[2] || myAwardID >= chars[3]) {
-            strText = '一等奖';
-        } else if (myAwardID <= chars[4] || myAwardID >= chars[5]) {
-            strText = '二等奖';
+    if (!sessionStorage.getItem("key")) {
+        var myAwardID = Math.round(Math.random() * 100);
+        var chars = ['0', '100', '2', '98', '5', '95', '10', '90'];
+        /*中奖几率分别为：特等奖：1/99；一等奖：4/99；二等奖:6/99；三等奖：10/99*/
+        var strTitle, strText;
+        if (myAwardID < chars[7] && myAwardID > chars[6]) {
+            strTitle = '很遗憾';
+            strText = '您没有获得奖项';
         } else {
-            strText = '三等奖';
+            strTitle = '恭喜您获得了:';
+            if (myAwardID <= chars[0] || myAwardID >= chars[1]) {
+                strText = '特等奖';
+            } else if (myAwardID <= chars[2] || myAwardID >= chars[3]) {
+                strText = '一等奖';
+            } else if (myAwardID <= chars[4] || myAwardID >= chars[5]) {
+                strText = '二等奖';
+            } else {
+                strText = '三等奖';
+            }
         }
+        document.querySelector('.jiangliBg').getElementsByTagName('span')[0].innerText = strTitle;
+        document.querySelector('.jiangliBg').getElementsByTagName('p')[0].innerText = strText;
+        sessionStorage.setItem("key", strText);
     }
-    document.querySelector('.jiangliBg').getElementsByTagName('span')[0].innerText = strTitle;
-    document.querySelector('.jiangliBg').getElementsByTagName('p')[0].innerText = strText;
 }
