@@ -13,16 +13,24 @@ imgLoader(['img/background.jpg',  'img/9.12-9.14日每天上午10点.png', 'img/
         document.querySelector(".myCoverSpanLine").style.display = 'none';
         document.getElementById("preloader5").style.display = 'none';
         document.getElementById("yaoyiyaoHand").style.display = 'block';
-       /* var myHand = document.getElementById("yaoyiyaoHand");
+        var myHand = document.getElementById("yaoyiyaoHand");
         var waitYao = setInterval(function () {
             if(myHand.className) {
                 document.getElementById("yaoyiyaoHand").setAttribute('class', '');
             }else{
                 document.getElementById("yaoyiyaoHand").setAttribute('class', 'animated tada');
             }
-        },1000);*/
+        },1000);
     }
 });
+
+if (window.DeviceMotionEvent) {
+    window.addEventListener('devicemotion', deviceMotionHandler, false);
+}
+var vibrateSupport = "vibrate" in navigator;
+if (vibrateSupport) { //兼容不同的浏览器
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+}
 
 //获取加速度信息
 //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
