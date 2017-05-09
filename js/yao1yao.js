@@ -1,9 +1,9 @@
 /**
  * Created by Palov on 2017/5/4.
  */
-var animateStart = animateStop = fangfaStep1 = fangfaStep2 = fangfaStep3 = null;
+var myAward = false;
 /*预加载图片*/
-imgLoader(['img/background.jpg',  'img/9.12-9.14日每天上午10点.png', 'img/10红包.png', 'img/66红包.png', 'img/88红包.png', 'img/红包.png', 'img/摇一摇.png', 'img/元宝.png', 'img/圆钱.png', 'img/摇一摇·手.png', 'img/new-bg.jpg', 'img/BG02.png'], function (percentage) {
+imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/10红包.png', 'img/66红包.png', 'img/88红包.png', 'img/红包.png', 'img/摇一摇.png', 'img/元宝.png', 'img/圆钱.png', 'img/摇一摇·手.png', 'img/new-bg.jpg', 'img/BG02.png'], function (percentage) {
     var percentT = percentage * 100;
     document.querySelector(".myCoverSpan").innerText = 'Loading ' + (parseInt(percentT)) + '%';
     document.querySelector(".myCoverSpanLine").style.width = percentT + '%';
@@ -15,12 +15,12 @@ imgLoader(['img/background.jpg',  'img/9.12-9.14日每天上午10点.png', 'img/
         document.getElementById("yaoyiyaoHand").style.display = 'block';
         var myHand = document.getElementById("yaoyiyaoHand");
         var waitYao = setInterval(function () {
-            if(myHand.className) {
+            if (myHand.className) {
                 document.getElementById("yaoyiyaoHand").setAttribute('class', '');
-            }else{
+            } else {
                 document.getElementById("yaoyiyaoHand").setAttribute('class', 'animated tada');
             }
-        },1000);
+        }, 1000);
 
         if (window.DeviceMotionEvent) {
             window.addEventListener('devicemotion', deviceMotionHandler, false);
@@ -37,31 +37,35 @@ imgLoader(['img/background.jpg',  'img/9.12-9.14日每天上午10点.png', 'img/
         var last_update = 0;
         var x, y, z, last_x = 0, last_y = 0, last_z = 0;
 
-        function deviceMotionHandler(eventData) {
-            if(waitYao) {clearInterval(waitYao);}
-            var acceleration = eventData.accelerationIncludingGravity;
-            var curTime = new Date().getTime();
-            if ((curTime - last_update) > 10) {
-                var diffTime = curTime - last_update;
-                last_update = curTime;
-                x = acceleration.x;
-                y = acceleration.y;
-                z = acceleration.z;
-                var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-                if (speed > SHAKE_THRESHOLD) {
-                    navigator.vibrate(1000);
-                    document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
-                    getTheAward();
-                    StartMyPage();
+        if (!myAward) {
+            function deviceMotionHandler(eventData) {
+                var acceleration = eventData.accelerationIncludingGravity;
+                var curTime = new Date().getTime();
+                if ((curTime - last_update) > 10) {
+                    var diffTime = curTime - last_update;
+                    last_update = curTime;
+                    x = acceleration.x;
+                    y = acceleration.y;
+                    z = acceleration.z;
+                    var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+                    if (speed > SHAKE_THRESHOLD) {
+                        navigator.vibrate(1000);
+                        if (waitYao) {
+                            clearInterval(waitYao);
+                        }
+                        myAward = true;
+                        document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
+                        getTheAward();
+                        StartMyPage();
+                    }
+                    last_x = x;
+                    last_y = y;
+                    last_z = z;
                 }
-                last_x = x;
-                last_y = y;
-                last_z = z;
             }
         }
     }
 });
-
 
 
 function StartMyPage() {
