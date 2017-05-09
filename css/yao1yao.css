@@ -22,7 +22,7 @@ body .myBGImg2{
 
 .mybackground,header,.myCover{
     width:100vw;
-    position: relative;
+    position: absolute;
 }
 
 .mybackground{

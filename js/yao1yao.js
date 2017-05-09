@@ -43,34 +43,11 @@ setTimeout(function () {
 
 function StartMyPage() {
     setTimeout(function () {
-        document.querySelector(".myCover").style.display = 'none';
-        document.querySelector(".myBGImg2").style.display = 'block';
-        document.querySelector(".my88red1").setAttribute('class', 'myAbsolute my88red1 animated slideInDown');
+        document.querySelector(".myBGImg2").setAttribute('class', 'myBGImg myBGImg2 animated backgroundUp');
         setTimeout(function () {
-            document.querySelector(".myBGImg1").style.display = 'block';
-            document.querySelector(".my66red1").setAttribute('class', 'myAbsolute my66red1 animated bounceInDown');
-            setTimeout(function () {
-                document.querySelector(".myCircle1").setAttribute('class', 'myAbsolute myCircle1 animated bounceIn');
-                document.querySelector(".my88red2").setAttribute('class', 'myAbsolute my88red2 animated slideInDown');
-                setTimeout(function () {
-                    document.querySelector(".yuanbao1").setAttribute('class', 'myAbsolute yuanbao1 animated bounceIn');
-                    document.querySelector(".my10red1").setAttribute('class', 'myAbsolute my10red1 animated slideInDown');
-                    document.querySelector(".myCircle3").setAttribute('class', 'myAbsolute myCircle3 animated bounceIn');
-                    setTimeout(function () {
-                        document.querySelector(".myCircle2").setAttribute('class', 'myAbsolute myCircle2 animated bounceIn');
-                        document.querySelector(".my66red2").setAttribute('class', 'myAbsolute my66red2 animated zoomInDown');
-                        document.querySelector(".myCircle4").setAttribute('class', 'myAbsolute myCircle4 animated bounceInUp');
-                        setTimeout(function () {
-                            document.querySelector(".myBGImg2").setAttribute('class', 'myBGImg myBGImg2 animated backgroundUp');
-                            setTimeout(function () {
-                                document.querySelector(".myBGImg1").setAttribute('class', 'myBGImg myBGImg1 animated backgroundUp');
-                                document.querySelector(".jiangliBg").setAttribute('class', 'myAbsolute jiangliBg animated bounceInUp');
-                            }, 150);
-                        }, 500);
-                    }, 300);
-                }, 400);
-            }, 300);
-        }, 200);
+            document.querySelector(".myBGImg1").setAttribute('class', 'myBGImg myBGImg1 animated backgroundUp');
+            document.querySelector(".jiangliBg").setAttribute('class', 'myAbsolute jiangliBg animated bounceInUp');
+        }, 150);
     }, 200);
 }
 
