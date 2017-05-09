@@ -1,7 +1,6 @@
 /**
  * Created by Palov on 2017/5/4.
  */
-var myAward = false;
 /*预加载图片*/
 imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/10红包.png', 'img/66红包.png', 'img/88红包.png', 'img/红包.png', 'img/摇一摇.png', 'img/元宝.png', 'img/圆钱.png', 'img/摇一摇·手.png', 'img/new-bg.jpg', 'img/BG02.png'], function (percentage) {
     var percentT = percentage * 100;
@@ -23,45 +22,53 @@ imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/1
         }, 1000);
 
 
-            if (window.DeviceMotionEvent) {
-                window.addEventListener('devicemotion', deviceMotionHandler, false);
-            }
-            var vibrateSupport = "vibrate" in navigator;
-            if (vibrateSupport) { //兼容不同的浏览器
-                navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-            }
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', deviceMotionHandler, false);
+        }
+        var vibrateSupport = "vibrate" in navigator;
+        if (vibrateSupport) { //兼容不同的浏览器
+            navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+        }
 
-    //获取加速度信息
-    //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
-    //而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
-            var SHAKE_THRESHOLD = 4000;
-            var last_update = 0;
-            var x, y, z, last_x = 0, last_y = 0, last_z = 0;
+        //获取加速度信息
+        //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
+        //而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
+        var SHAKE_THRESHOLD = 4000;
+        var last_update = 0;
+        var x, y, z, last_x = 0, last_y = 0, last_z = 0;
 
-            function deviceMotionHandler(eventData) {
-                var acceleration = eventData.accelerationIncludingGravity;
-                var curTime = new Date().getTime();
-                if ((curTime - last_update) > 10) {
-                    var diffTime = curTime - last_update;
-                    last_update = curTime;
-                    x = acceleration.x;
-                    y = acceleration.y;
-                    z = acceleration.z;
-                    var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-                    if (speed > SHAKE_THRESHOLD) {
-                        navigator.vibrate(1000);
-                        if (waitYao) {
-                            clearInterval(waitYao);
-                        }
-                        document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
-                        getTheAward();
-                        StartMyPage();
+        function deviceMotionHandler(eventData) {
+            var acceleration = eventData.accelerationIncludingGravity;
+            var curTime = new Date().getTime();
+            if ((curTime - last_update) > 10) {
+                var diffTime = curTime - last_update;
+                last_update = curTime;
+                x = acceleration.x;
+                y = acceleration.y;
+                z = acceleration.z;
+                var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+                if (speed > SHAKE_THRESHOLD) {
+                    if(navigator.vibrate) {
+                        navigator.vibrate(500);
+                    } else if(navigator.webkitVibrate) {
+                        navigator.webkitVibrate(500);
+                    } else if(navigator.mozVibrate) {
+                        navigator.mozVibrate(500);
+                    } else if(navigator.msVibrate) {
+                        navigator.msVibrate(500);
                     }
-                    last_x = x;
-                    last_y = y;
-                    last_z = z;
+                    if (waitYao) {
+                        clearInterval(waitYao);
+                    }
+                    document.querySelector(".myCover").setAttribute('class', 'myCover animated fadeOut');
+                    getTheAward();
+                    StartMyPage();
                 }
+                last_x = x;
+                last_y = y;
+                last_z = z;
             }
+        }
 
     }
 });
@@ -70,27 +77,7 @@ imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/1
 function StartMyPage() {
     setTimeout(function () {
         document.querySelector(".myCover").style.display = 'none';
-        document.querySelector(".my88red1").setAttribute('class', 'myAbsolute my88red1 animated slideInDown');
-        setTimeout(function () {
-            document.querySelector(".my66red1").setAttribute('class', 'myAbsolute my66red1 animated bounceInDown');
-            setTimeout(function () {
-                document.querySelector(".myCircle1").setAttribute('class', 'myAbsolute myCircle1 animated bounceIn');
-                document.querySelector(".my88red2").setAttribute('class', 'myAbsolute my88red2 animated slideInDown');
-                setTimeout(function () {
-                    document.querySelector(".yuanbao1").setAttribute('class', 'myAbsolute yuanbao1 animated bounceIn');
-                    document.querySelector(".my10red1").setAttribute('class', 'myAbsolute my10red1 animated slideInDown');
-                    document.querySelector(".myCircle3").setAttribute('class', 'myAbsolute myCircle3 animated bounceIn');
-                    setTimeout(function () {
-                        document.querySelector(".myCircle2").setAttribute('class', 'myAbsolute myCircle2 animated bounceIn');
-                        document.querySelector(".my66red2").setAttribute('class', 'myAbsolute my66red2 animated zoomInDown');
-                        document.querySelector(".myCircle4").setAttribute('class', 'myAbsolute myCircle4 animated bounceInUp');
-                        setTimeout(function () {
-                            document.querySelector(".jiangliBg").setAttribute('class', 'myAbsolute jiangliBg animated bounceInUp');
-                        }, 150);
-                    }, 300);
-                }, 400);
-            }, 300);
-        }, 200);
+        document.querySelector(".jiangliBg").setAttribute('class', 'myAbsolute jiangliBg animated bounceInUp');
     }, 200);
 }
 
