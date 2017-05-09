@@ -22,22 +22,22 @@ imgLoader(['img/background.jpg', 'img/9.12-9.14日每天上午10点.png', 'img/1
             }
         }, 1000);
 
-        if (window.DeviceMotionEvent) {
-            window.addEventListener('devicemotion', deviceMotionHandler, false);
-        }
-        var vibrateSupport = "vibrate" in navigator;
-        if (vibrateSupport) { //兼容不同的浏览器
-            navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-        }
+        if (!myAward) {
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', deviceMotionHandler, false);
+            }
+            var vibrateSupport = "vibrate" in navigator;
+            if (vibrateSupport) { //兼容不同的浏览器
+                navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+            }
 
 //获取加速度信息
 //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
 //而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
-        var SHAKE_THRESHOLD = 4000;
-        var last_update = 0;
-        var x, y, z, last_x = 0, last_y = 0, last_z = 0;
+            var SHAKE_THRESHOLD = 4000;
+            var last_update = 0;
+            var x, y, z, last_x = 0, last_y = 0, last_z = 0;
 
-        if (!myAward) {
             function deviceMotionHandler(eventData) {
                 var acceleration = eventData.accelerationIncludingGravity;
                 var curTime = new Date().getTime();
